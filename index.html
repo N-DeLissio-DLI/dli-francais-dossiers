@@ -69,6 +69,18 @@
     height:84px;
     width:auto;
   }
+  .title-row{
+    display:flex;
+    align-items:center;
+    gap:0.7rem;
+  }
+  .flag-icon{
+    height:1.5rem;
+    width:auto;
+    display:block;
+    border-radius:2px;
+    border:1px solid var(--hairline);
+  }
 
   main{
     max-width:1080px;
@@ -246,7 +258,8 @@
 
 <div class="letterhead">
   <div class="letterhead-row">
-    <div>
+    <div class="title-row">
+      <img src="assets/france-flag.svg" alt="French flag" class="flag-icon">
       <h1>Les Dossiers Français</h1>
     </div>
     <div class="brand-logos">
