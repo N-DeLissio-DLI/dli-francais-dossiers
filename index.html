@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dossiers Français · DLIFLC</title>
+<title>Les Dossiers Français · DLIFLC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
     gap:1.1rem;
   }
   .brand-logos img{
-    height:60px;
+    height:84px;
     width:auto;
   }
 
@@ -92,7 +92,7 @@
     color:var(--sage);
     border-top:1px solid var(--hairline);
     padding-top:0.6rem;
-    margin-bottom:2.2rem;
+    margin-bottom:1.4rem;
   }
 
   .grid{
@@ -105,33 +105,16 @@
     position:relative;
     background:var(--paper-card);
     border:1px solid var(--hairline);
-    border-top:none;
     padding:1.6rem 1.4rem 1.4rem;
     text-decoration:none;
     color:var(--ink);
     display:block;
     transition:transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
   }
-  .folder::before{
-    content:attr(data-tab);
-    position:absolute;
-    top:-1.55rem;
-    left:1.1rem;
-    background:var(--ink);
-    color:var(--paper-card);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.68rem;
-    letter-spacing:0.1em;
-    padding:0.32rem 0.7rem;
-    border-radius:2px 2px 0 0;
-  }
   .folder:hover{
     transform:translateY(-3px);
     box-shadow:0 10px 22px -12px rgba(28,43,57,0.35);
     border-color:var(--ink);
-  }
-  .folder:hover::before{
-    background:var(--stamp);
   }
   .folder-top{
     display:flex;
@@ -161,7 +144,7 @@
     white-space:nowrap;
     flex-shrink:0;
   }
-  .status.active{color:#2E5B3E;}
+  .status.active{color:#1F6E3C;border-color:#1F6E3C;background:#E1EFE3;}
   .status.pending{color:var(--stamp);}
 
   .folder-foot{
@@ -180,6 +163,68 @@
     font-weight:500;
   }
   .folder:hover .open-cue{color:var(--stamp);}
+
+  .testdate-row{
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.82rem;
+    color:var(--steel);
+    margin:0 0 1.4rem;
+  }
+  .testdate-row input[type=date]{
+    font-family:inherit;
+    font-size:0.82rem;
+    padding:0.3rem 0.5rem;
+    border:1px solid var(--hairline);
+    border-radius:2px;
+    background:var(--paper-card);
+    color:var(--ink);
+  }
+  .testdays{
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  .phase{
+    position:relative;
+    background:var(--paper-card);
+    border:1px solid var(--hairline);
+    border-left:3px solid var(--hairline);
+    padding:1.1rem 1.3rem;
+    margin:0 0 1rem;
+  }
+  .phase.cur{border-left-color:var(--stamp);}
+  .phase .ph-when{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--stamp);
+    margin-bottom:0.3rem;
+  }
+  .phase.dim .ph-when{color:var(--sage);}
+  .phase h3{
+    font-family:'Source Serif 4',serif;
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.35rem;
+  }
+  .phase p{
+    margin:0;
+    font-size:0.9rem;
+    color:var(--steel);
+    line-height:1.55;
+  }
+  .phase .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.68rem;
+    color:var(--sage);
+    margin-top:0.6rem;
+  }
 
   footer{
     max-width:1080px;
@@ -202,23 +247,22 @@
 <div class="letterhead">
   <div class="letterhead-row">
     <div>
-      <h1>Dossiers Français</h1>
+      <h1>Les Dossiers Français</h1>
     </div>
     <div class="brand-logos">
       <img src="assets/dliflc-logo.png" alt="DLIFLC logo">
-      <img src="assets/dliflc-crest.png" alt="DLIFLC crest">
     </div>
   </div>
 </div>
 
 <main>
-  <p class="lead">Interactive study dossiers, aligned chapter-by-chapter with the course textbook. Each dossier is identical whether you access it here or locally — progress tracking included.</p>
+  <p class="lead">Les Dossiers Français is a set of self-contained study tools built for French Basic Course students — vocabulary drills, grammar practice, and progress tracking, aligned chapter-by-chapter with the course textbook. Built by a fellow student.</p>
 
   <p class="drawer-label">Dossier Index</p>
 
   <div class="grid">
 
-    <a class="folder" data-tab="UNIT 1" href="/unite-1/">
+    <a class="folder" href="/unite-1/">
       <div class="folder-top">
         <div>
           <h2>Unit 1</h2>
@@ -227,12 +271,12 @@
         <span class="status active">Active</span>
       </div>
       <div class="folder-foot">
-        <span>v3.1.0.1</span>
+        <span>v3.1.0.2</span>
         <span class="open-cue">Open →</span>
       </div>
     </a>
 
-    <a class="folder" data-tab="UNIT 2" href="/unite-2/">
+    <a class="folder" href="/unite-2/">
       <div class="folder-top">
         <div>
           <h2>Unit 2</h2>
@@ -241,12 +285,12 @@
         <span class="status active">Active</span>
       </div>
       <div class="folder-foot">
-        <span>v1.2.0</span>
+        <span>v1.2.1</span>
         <span class="open-cue">Open →</span>
       </div>
     </a>
 
-    <a class="folder" data-tab="UNIT 3" href="/unite-3/">
+    <a class="folder" href="/unite-3/">
       <div class="folder-top">
         <div>
           <h2>Unit 3</h2>
@@ -255,17 +299,89 @@
         <span class="status active">Active</span>
       </div>
       <div class="folder-foot">
-        <span>v1.2.0.2</span>
+        <span>v1.2.0.3</span>
         <span class="open-cue">Open →</span>
       </div>
     </a>
 
+  </div>
+
+  <p class="drawer-label" style="margin-top:2.6rem">Your plan to test day</p>
+
+  <div class="testdate-row">
+    <label for="testDateInput">Test date</label>
+    <input type="date" id="testDateInput">
+    <span id="testDaysOut" class="testdays"></span>
+  </div>
+
+  <p class="lead">The DLPT measures <b>reading + listening</b> (multiple-choice, ILR-scored); the OPI is a live <b>speaking</b> interview. Grammar drilling is the foundation — but the tests reward volume of input and hours of talking. Shift your weight across these phases. Confirm your exact level targets with your MLI/teacher.</p>
+
+  <div class="phase" id="ph1"><div class="ph-when">26+ weeks out · Foundation</div>
+    <h3>Lock the engine</h3>
+    <p>Own the present tense for every verb group, plus futur proche, reflexives, negation, possessives, and question forms. Use the Verbes + Grammaire tabs daily (15–20 min). Start gentle listening: slow-French podcasts, the textbook audio. Goal: zero hesitation on Unit 1–2 mechanics.</p>
+    <span class="tag">Verbes daily · Grammaire by chapter · 10 min easy listening</span>
+  </div>
+  <div class="phase dim" id="ph2"><div class="ph-when">13–26 weeks out · Volume</div>
+    <h3>Flood the input, start producing</h3>
+    <p>Comprehension is built by hours, not rules. Read and listen to authentic material every day (news clips, short articles). Add passé composé + imparfait. Begin speaking aloud daily: describe your routine, give directions, introduce people — the exact OPI task types. Record yourself.</p>
+    <span class="tag">Daily authentic reading + listening · daily 5-min monologue</span>
+  </div>
+  <div class="phase dim" id="ph3"><div class="ph-when">5–13 weeks out · Conditioning</div>
+    <h3>Train under test conditions</h3>
+    <p>Timed DLPT-style passages weekly — practice reading for gist and detail against the clock. Weekly mock OPI with a partner or tutor: warm-up, level checks, a role-play, wind-down. Feed your "still learning" verb list and missed drills back in until they're clean.</p>
+    <span class="tag">Weekly timed reading/listening · weekly mock OPI</span>
+  </div>
+  <div class="phase dim" id="ph4"><div class="ph-when">Final 5 weeks · Taper</div>
+    <h3>Sharpen, then rest</h3>
+    <p>One or two full-length timed run-throughs, light review of weak spots, and confirm test logistics. Then ease off — sleep and a calm head do more in the final days than cramming. Confirm your exact test dates and logistics with your MLI/teacher.</p>
+    <span class="tag">2 full mocks · light review · rest</span>
   </div>
 </main>
 
 <footer>
   Progress saved locally, per device · Updated as units are added
 </footer>
+
+<script>
+"use strict";
+var TEST_DATE_KEY="frTestDate"; /* shared with all unit dossiers on this device — same origin, one date */
+var PHASE_WEEKS=[26,13,5]; /* weeks-remaining-until-test thresholds */
+function getTestDateStr(){ try{ return localStorage.getItem(TEST_DATE_KEY)||""; }catch(e){ return ""; } }
+function getTestDate(){
+  var v=getTestDateStr(); if(!v) return null;
+  var d=new Date(v+"T00:00:00");
+  return isNaN(d) ? null : d;
+}
+function setTestDate(v){
+  try{ if(v){ localStorage.setItem(TEST_DATE_KEY,v); } else { localStorage.removeItem(TEST_DATE_KEY); } }catch(e){}
+  render();
+}
+function daysToTest(){
+  var t=getTestDate(); if(!t) return null;
+  var now=new Date(); now.setHours(0,0,0,0);
+  return Math.max(0,Math.round((t-now)/864e5));
+}
+function weeksToTest(){ var n=daysToTest(); return n===null ? null : n/7; }
+function refreshPhases(){
+  ["ph1","ph2","ph3","ph4"].forEach(function(id){var e=document.getElementById(id); if(e){e.classList.add("dim");e.classList.remove("cur");}});
+  var w=weeksToTest(); if(w===null) return;
+  var cur = w>=PHASE_WEEKS[0]?"ph1":w>=PHASE_WEEKS[1]?"ph2":w>=PHASE_WEEKS[2]?"ph3":"ph4";
+  var el=document.getElementById(cur); if(el){ el.classList.remove("dim"); el.classList.add("cur"); }
+}
+function render(){
+  var n=daysToTest();
+  var out=document.getElementById("testDaysOut");
+  if(out) out.textContent = n===null ? "Set a date to see your phase" : (n+" day"+(n===1?"":"s")+" out");
+  var input=document.getElementById("testDateInput");
+  if(input && document.activeElement!==input) input.value=getTestDateStr();
+  refreshPhases();
+}
+(function(){
+  var input=document.getElementById("testDateInput");
+  if(input){ input.value=getTestDateStr(); input.onchange=function(){ setTestDate(input.value); }; }
+  render();
+})();
+</script>
 
 </body>
 </html>
