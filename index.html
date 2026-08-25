@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,20 +60,13 @@
     line-height:1.1;
     letter-spacing:-0.01em;
   }
-  .file-id{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.78rem;
-    color:var(--steel);
-    text-align:right;
-    line-height:1.6;
-  }
-  .file-id-wrap{
+  .brand-logos{
     display:flex;
     align-items:center;
-    gap:0.7rem;
+    gap:1.1rem;
   }
-  .crest-logo{
-    height:48px;
+  .brand-logos img{
+    height:60px;
     width:auto;
   }
 
@@ -99,7 +92,7 @@
     color:var(--sage);
     border-top:1px solid var(--hairline);
     padding-top:0.6rem;
-    margin-bottom:1.2rem;
+    margin-bottom:2.2rem;
   }
 
   .grid{
@@ -201,7 +194,6 @@
 
   @media (max-width:520px){
     .letterhead-row{flex-direction:column;align-items:flex-start;}
-    .file-id{text-align:left;}
   }
 </style>
 </head>
@@ -210,64 +202,61 @@
 <div class="letterhead">
   <div class="letterhead-row">
     <div>
-      <p class="eyebrow">Defense Language Institute · Cours de Base de Français</p>
-      <h1>Index des Dossiers</h1>
+      <h1>Dossiers Français</h1>
     </div>
-    <div class="file-id-wrap">
-      <img src="assets/dliflc-crest.png" alt="DLIFLC crest" class="crest-logo">
-      <div class="file-id">
-        Objectif&nbsp;: DLPT / OPI
-      </div>
+    <div class="brand-logos">
+      <img src="assets/dliflc-logo.png" alt="DLIFLC logo">
+      <img src="assets/dliflc-crest.png" alt="DLIFLC crest">
     </div>
   </div>
 </div>
 
 <main>
-  <p class="lead">Dossiers d'étude interactifs, alignés chapitre par chapitre sur le manuel du cours de base. Chaque dossier reste identique, que vous y accédiez ici ou en local — suivi de progression compris.</p>
+  <p class="lead">Interactive study dossiers, aligned chapter-by-chapter with the course textbook. Each dossier is identical whether you access it here or locally — progress tracking included.</p>
 
-  <p class="drawer-label">Tiroir 1 — Unités du semestre</p>
+  <p class="drawer-label">Dossier Index</p>
 
   <div class="grid">
 
-    <a class="folder" data-tab="UNITÉ 1" href="/unite-1/">
+    <a class="folder" data-tab="UNIT 1" href="/unite-1/">
       <div class="folder-top">
         <div>
-          <h2>Unité 1</h2>
-          <p class="chapters">Chapitres 1–4</p>
+          <h2>Unit 1</h2>
+          <p class="chapters">Chapters 1–4</p>
         </div>
-        <span class="status active">Actif</span>
+        <span class="status active">Active</span>
       </div>
       <div class="folder-foot">
         <span>v3.1.0.1</span>
-        <span class="open-cue">Ouvrir →</span>
+        <span class="open-cue">Open →</span>
       </div>
     </a>
 
-    <a class="folder" data-tab="UNITÉ 2" href="/unite-2/">
+    <a class="folder" data-tab="UNIT 2" href="/unite-2/">
       <div class="folder-top">
         <div>
-          <h2>Unité 2</h2>
-          <p class="chapters">Chapitres 6–9</p>
+          <h2>Unit 2</h2>
+          <p class="chapters">Chapters 6–9</p>
         </div>
-        <span class="status active">Actif</span>
+        <span class="status active">Active</span>
       </div>
       <div class="folder-foot">
         <span>v1.2.0</span>
-        <span class="open-cue">Ouvrir →</span>
+        <span class="open-cue">Open →</span>
       </div>
     </a>
 
-    <a class="folder" data-tab="UNITÉ 3" href="/unite-3/">
+    <a class="folder" data-tab="UNIT 3" href="/unite-3/">
       <div class="folder-top">
         <div>
-          <h2>Unité 3</h2>
-          <p class="chapters">Chapitres 11–14</p>
+          <h2>Unit 3</h2>
+          <p class="chapters">Chapters 11–14</p>
         </div>
-        <span class="status active">Actif</span>
+        <span class="status active">Active</span>
       </div>
       <div class="folder-foot">
         <span>v1.2.0.2</span>
-        <span class="open-cue">Ouvrir →</span>
+        <span class="open-cue">Open →</span>
       </div>
     </a>
 
@@ -275,7 +264,7 @@
 </main>
 
 <footer>
-  Progression enregistrée localement, par appareil · Mis à jour au fil des unités
+  Progress saved locally, per device · Updated as units are added
 </footer>
 
 </body>
