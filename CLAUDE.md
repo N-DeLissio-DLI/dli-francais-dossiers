@@ -4,7 +4,9 @@
 Self-contained, single-file HTML/JS study dossiers (localStorage progress tracking)
 for French Basic Course students, built by Nicholas (student, Monterey). Used by
 him and classmates. Product is class-agnostic — not tied to one
-cohort's test date. Hosted on Cloudflare Pages.
+cohort's test date. Hosted on Cloudflare (Workers static assets; see
+`wrangler.jsonc`). Live site:
+https://dli-francais-dossiers.dliflc-uml-french.workers.dev/
 
 Repo layout (adjust to match actual repo once cloned):
 - Working/in-progress files: wherever we're actively editing
