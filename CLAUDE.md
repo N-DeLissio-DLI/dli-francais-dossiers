@@ -31,6 +31,11 @@ Batch small changes — don't commit piecemeal unless asked to.
   Building on a stale base silently reverts intervening changes.
 
 ## Content & pedagogy rules
+- Source-text authority: labeling, chapter titles, grouping, and sequencing
+  follow the current unit's own source text (its textbook / glossaire) unless an
+  explicit project rule says otherwise. When a forked engine carries a donor
+  unit's labels or scope copy, correct them to the current unit — don't preserve
+  the inherited wording.
 - Drills must require a real decision. Fill-in-the-blank items where only one
   token is ever plausible test nothing — this applies even if conjugation isn't
   the target concept; ask "could a student get this right without applying the
