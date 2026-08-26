@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unité 3 · Dossier Français — v1.2.2</title>
+<title>Unité 3 · Dossier Français — v1.2.2.1</title>
 <style>
   :root{
     --ink:#16243d;          /* deep navy: text + structure */
@@ -36,8 +36,8 @@
     border-bottom:2px solid var(--ink); margin:0 -18px 0; padding:22px 18px 16px;
     display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;
   }
-  .brand .backlink{display:inline-block; font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--mute); text-decoration:none; margin:0 0 7px}
-  .brand .backlink:hover{color:var(--accent)}
+  .brand .backlink{display:inline-block; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--ink-2); text-decoration:none; margin:0 0 9px; padding:5px 13px; border:1px solid var(--line); border-radius:999px; background:var(--card); transition:color .12s ease, border-color .12s ease, background .12s ease}
+  .brand .backlink:hover{color:var(--accent); border-color:var(--accent); background:var(--accent-soft)}
   .brand .eyebrow{font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--mute); font-weight:700}
   .brand h1{font-family:var(--serif); font-weight:600; font-size:30px; margin:2px 0 0; letter-spacing:-.01em}
   .brand h1 span{color:var(--accent)}
@@ -294,7 +294,7 @@
   <header class="top">
     <div class="brand">
       <a class="backlink" href="/">‹ Tous les dossiers</a>
-      <div class="eyebrow">DLIFLC · French Basic Course · Unit 3 · v1.2.2</div>
+      <div class="eyebrow">DLIFLC · French Basic Course · Unit 3 · v1.2.2.1</div>
       <h1><b>Unité&nbsp;3</b> · Le Dossier&nbsp;<span>Français</span></h1>
     </div>
     <div>
@@ -562,8 +562,9 @@
   </section>
 
   <footer>
-    <strong>Dossier Unité 3 · v1.2.2</strong> — built from your DLIFLC <em>French Basic Course, Textbook 3</em>, Chapters 11–14 (Clothing · Weather · Vacations · Grammar review), plus AOL 120 vocabulary. Conjugations are present indicative; the passé composé is drilled in Grammaire. Engine forked from the Unité 1 Dossier v3.1.0.1.<br>
+    <strong>Dossier Unité 3 · v1.2.2.1</strong> — built from your DLIFLC <em>French Basic Course, Textbook 3</em>, Chapters 11–14 (Clothing · Weather · Vacations · Grammar review), plus AOL 120 vocabulary. Conjugations are present indicative; the passé composé is drilled in Grammaire. Engine forked from the Unité 1 Dossier v3.1.0.1.<br>
     <details class="changelog"><summary>Changelog</summary>
+    <span style="color:var(--mute)">v1.2.2.1 (25 Aug 2026): <strong>Back-link restyled.</strong> The <strong>‹ Tous les dossiers</strong> header link is now a bordered pill button (hairline border, card fill, red on hover) instead of bare text, so it reads clearly as a button. CSS only.<br></span>
     <span style="color:var(--mute)">v1.2.2 (25 Aug 2026): <strong>Achievement bug fixes.</strong> Two trophies unlocked when they shouldn't. <strong>"Chapitre 11 maîtrisé"</strong> (📗) was checking for green Chapter <em>6</em> cards — a chapter this unit doesn't have — so it fired on the very first green card in any chapter from a fresh profile. It now checks Chapter 11, and a one-time self-heal revokes it on load if it was unlocked without every Chapter 11 word actually being green (it re-earns normally; no stats reset, no other trophy touched). <strong>"Accent aigu"</strong> (✍️) awarded after 20 graded answers with no accent-only misses — but a run of <em>all-wrong</em> answers also has no accent-only misses, so bombing 20 spelling checks in a row earned it; it now also requires that a solid majority (70%) of the session's answers were correct. The sibling "Conjugueur" check was hardened against the same empty-set edge. No item, answer, or scoring changes.<br></span>
     <span style="color:var(--mute)">v1.2.1 (25 Aug 2026): <strong>Vocab topic groups chunked · landing-page link · tab title.</strong> Five oversized Vocabulaire topic groups split so every group now sits at ~14–25 cards (was up to 47): Ch 12 weather nouns → "rain, storms &amp; wind" (21) + "heat, cold &amp; sky" (19); Ch 13 travel nouns → "logistics &amp; transport" (20) + "lodging, gear &amp; trip words" (14); Ch 14 travel nouns → "transport &amp; itinerary" (16) + "lodging, baggage &amp; costs" (15) + "places, heritage &amp; travellers" (16); Ch 14 travel adjectives → "places &amp; scenery" (21) + "quality, stay &amp; sustainability" (19); Ch 14 verbs → non-reflexive (23) + "reflexive" (16). Card content, answers, and scoring unchanged — topic tags only; saved progress is keyed on the word and carries over. Header gains a <strong>‹ Tous les dossiers</strong> link back to the dossier index, and the browser tab now reads <strong>Unité 3 · Dossier Français</strong> (unit first) instead of leading with the version string.<br></span>
     <span style="color:var(--mute)">v1.2.0.3 (24 Aug 2026): <strong>class-agnostic test date + phases</strong>. The DLPT/OPI countdown chip in the header is now clickable — set your own test date, saved to this browser and shared automatically across all three unit dossiers (one date, not per-unit). The dashboard's four study-plan phases (Foundation/Volume/Conditioning/Taper) now key off weeks remaining until your test instead of a hardcoded course-start date; their labels changed from fixed calendar months to relative week-ranges so they hold up for any cohort. The old hardcoded DLPT date, course-start date, and the "Course week (of 35)" dashboard stat are removed. Masthead now reads <strong>Le Dossier Français</strong>.<br></span>
