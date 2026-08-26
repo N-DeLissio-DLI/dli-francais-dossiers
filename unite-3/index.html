@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unité 3 · Dossier Français — v1.2.1</title>
+<title>Unité 3 · Dossier Français — v1.2.2</title>
 <style>
   :root{
     --ink:#16243d;          /* deep navy: text + structure */
@@ -294,7 +294,7 @@
   <header class="top">
     <div class="brand">
       <a class="backlink" href="/">‹ Tous les dossiers</a>
-      <div class="eyebrow">DLIFLC · French Basic Course · Unit 3 · v1.2.1</div>
+      <div class="eyebrow">DLIFLC · French Basic Course · Unit 3 · v1.2.2</div>
       <h1><b>Unité&nbsp;3</b> · Le Dossier&nbsp;<span>Français</span></h1>
     </div>
     <div>
@@ -562,8 +562,9 @@
   </section>
 
   <footer>
-    <strong>Dossier Unité 3 · v1.2.1</strong> — built from your DLIFLC <em>French Basic Course, Textbook 3</em>, Chapters 11–14 (Clothing · Weather · Vacations · Grammar review), plus AOL 120 vocabulary. Conjugations are present indicative; the passé composé is drilled in Grammaire. Engine forked from the Unité 1 Dossier v3.1.0.1.<br>
+    <strong>Dossier Unité 3 · v1.2.2</strong> — built from your DLIFLC <em>French Basic Course, Textbook 3</em>, Chapters 11–14 (Clothing · Weather · Vacations · Grammar review), plus AOL 120 vocabulary. Conjugations are present indicative; the passé composé is drilled in Grammaire. Engine forked from the Unité 1 Dossier v3.1.0.1.<br>
     <details class="changelog"><summary>Changelog</summary>
+    <span style="color:var(--mute)">v1.2.2 (25 Aug 2026): <strong>Achievement bug fixes.</strong> Two trophies unlocked when they shouldn't. <strong>"Chapitre 11 maîtrisé"</strong> (📗) was checking for green Chapter <em>6</em> cards — a chapter this unit doesn't have — so it fired on the very first green card in any chapter from a fresh profile. It now checks Chapter 11, and a one-time self-heal revokes it on load if it was unlocked without every Chapter 11 word actually being green (it re-earns normally; no stats reset, no other trophy touched). <strong>"Accent aigu"</strong> (✍️) awarded after 20 graded answers with no accent-only misses — but a run of <em>all-wrong</em> answers also has no accent-only misses, so bombing 20 spelling checks in a row earned it; it now also requires that a solid majority (70%) of the session's answers were correct. The sibling "Conjugueur" check was hardened against the same empty-set edge. No item, answer, or scoring changes.<br></span>
     <span style="color:var(--mute)">v1.2.1 (25 Aug 2026): <strong>Vocab topic groups chunked · landing-page link · tab title.</strong> Five oversized Vocabulaire topic groups split so every group now sits at ~14–25 cards (was up to 47): Ch 12 weather nouns → "rain, storms &amp; wind" (21) + "heat, cold &amp; sky" (19); Ch 13 travel nouns → "logistics &amp; transport" (20) + "lodging, gear &amp; trip words" (14); Ch 14 travel nouns → "transport &amp; itinerary" (16) + "lodging, baggage &amp; costs" (15) + "places, heritage &amp; travellers" (16); Ch 14 travel adjectives → "places &amp; scenery" (21) + "quality, stay &amp; sustainability" (19); Ch 14 verbs → non-reflexive (23) + "reflexive" (16). Card content, answers, and scoring unchanged — topic tags only; saved progress is keyed on the word and carries over. Header gains a <strong>‹ Tous les dossiers</strong> link back to the dossier index, and the browser tab now reads <strong>Unité 3 · Dossier Français</strong> (unit first) instead of leading with the version string.<br></span>
     <span style="color:var(--mute)">v1.2.0.3 (24 Aug 2026): <strong>class-agnostic test date + phases</strong>. The DLPT/OPI countdown chip in the header is now clickable — set your own test date, saved to this browser and shared automatically across all three unit dossiers (one date, not per-unit). The dashboard's four study-plan phases (Foundation/Volume/Conditioning/Taper) now key off weeks remaining until your test instead of a hardcoded course-start date; their labels changed from fixed calendar months to relative week-ranges so they hold up for any cohort. The old hardcoded DLPT date, course-start date, and the "Course week (of 35)" dashboard stat are removed. Masthead now reads <strong>Le Dossier Français</strong>.<br></span>
     <span style="color:var(--mute)">v1.2.0.2 (24 Aug 2026): <strong>AOL 120 — split oversized topic groups.</strong> "Actions" (35 words) and "Expressions" (59 words) were too big to train against meaningfully. Actions split into Tactical verbs (18: actionner, neutraliser, patrouiller, riposter, sécuriser, tirer, tuer, etc.) and General verbs (17: accomplir, améliorer, être fier de, servir son pays, signer un contrat, etc.). Expressions split into Connectors & setting (21: prepositions, time/place, quantities), Incidents & ops (14: attentat, déploiement, ratissage, tactiques militaires, bataille/guerre, blessé/neutralisé/présumée), and Mission & workplace (24: mission, collaboration, contrôle, entraînements, travail, plus personal-phrase idioms). All 7 AOL topic groups now sit at 14–24 cards. No card content changed, only topic tags — <strong>going forward, vocab topic groupings target ~20–25 words; don't let a group grow past that without splitting it.</strong><br></span>
@@ -1910,6 +1911,13 @@ var vocOrder=[], vocIdx=0, vocShown=false;
 state.vocab = state.vocab || {};   // fr -> "known" | "learn"
 Object.keys(state.vocabStats).forEach(function(f){ var st=deriveStatus(f,state.vocabStats[f]); if(st) state.vocab[f]=st; });
 Object.keys(state.verbStats).forEach(function(fr){ var st=deriveStatus(fr,state.verbStats[fr]); if(st) state.verbs[fr]=st; });
+/* v1.2.2: "Chapitre 11 maîtrisé" (a_v6) misfired on forks that checked ch 6 — a chapter
+   Unit 3 has none of — so it unlocked on the first green card in any chapter. Revoke it
+   unless every Chapter 11 vocab card is genuinely known now; it re-earns itself normally. */
+if(state.ach.a_v6 && !(VOCAB.some(function(v){return v.c===11;}) &&
+    VOCAB.every(function(v){return v.c!==11 || state.vocab[v.f]==="known";}))){
+  delete state.ach.a_v6; saveState();
+}
 function rebuildVocTopics(){
   var present={};
   VOCAB.forEach(function(v){
@@ -3003,7 +3011,7 @@ document.getElementById("opiPrev").onclick=function(){ opiIdx=(opiIdx-1+OPI.leng
 /* =============== INSIGHTS + ACHIEVEMENTS (v1.0.0-b1) ===============
    Bucket analytics come from GRADED DRILL + QUIZ answers only (D6: trainers are
    a safe space and feed just the struggle list). First grade per item counts. */
-var sesStreak=0, sesFill=0, sesAccMiss=0;   /* per page-load session */
+var sesStreak=0, sesFill=0, sesAccMiss=0, sesRight=0;   /* per page-load session */
 
 function withSrc(m,src,sk,ch){ var o={}; if(m){ for(var k in m) o[k]=m[k]; } o.src=src; if(sk) o.sk=sk; if(ch) o.ch=ch; return o; }
 var GRAM_SK={py:"py",dpr1:"dpr",sup1:"sup",plr:"plr",voc11:"vocctx",fs1:"fs",met:"met",compirr:"compirr",pcimp:"pcimp",voc12:"vocctx",pcimp2:"pcimp",pron:"pron",voc13:"vocctx",prec:"prec",sup2:"sup",cond:"cond",comp:"comp",voc14:"vocctx"};
@@ -3013,12 +3021,12 @@ var ACH=[
   {id:"a_s10", icon:"🔥", name:"En feu",              desc:"10 correct answers in a row (any graded mode)."},
   {id:"a_s25", icon:"⚡", name:"Série de 25",         desc:"25 correct answers in a row."},
   {id:"a_s50", icon:"🏆", name:"Machine",             desc:"50 correct answers in a row."},
-  {id:"a_v6",  icon:"📗", name:"Chapitre 6 maîtrisé", desc:"Every Chapter 11 vocab card is green."},
+  {id:"a_v6",  icon:"📗", name:"Chapitre 11 maîtrisé", desc:"Every Chapter 11 vocab card is green."},
   {id:"a_conj",icon:"🔤", name:"Conjugueur",          desc:"Every verb in the Conjugaison tab is green."},
   {id:"a_quiz100",icon:"💯",name:"Sans faute",        desc:"A perfect chapter quiz."},
   {id:"a_quiz3x", icon:"🎩",name:"Hat-trick",         desc:"Three perfect chapter quizzes."},
   {id:"a_round",  icon:"🎯",name:"Round parfait",     desc:"A 10/10 grammar-drill round."},
-  {id:"a_acc",    icon:"✍️",name:"Accent aigu",       desc:"20+ graded answers in one session, zero accent misses."},
+  {id:"a_acc",    icon:"✍️",name:"Accent aigu",       desc:"20+ graded answers in a session, mostly correct, zero accent-only misses."},
   {id:"a_cb",     icon:"💪",name:"La revanche",       desc:"Master a word after missing it 3+ times in a row."},
   {id:"a_100",    icon:"💼",name:"Centurion",         desc:"100 graded answers, lifetime."},
   {id:"a_500",    icon:"🎖️",name:"Cinq cents",        desc:"500 graded answers, lifetime."}
@@ -3049,10 +3057,11 @@ function onGraded(ok){
 function sweepMastery(statusMap){
   try{
     if(statusMap===state.vocab){
-      var all=VOCAB.every(function(v){ return v.c!==6 || state.vocab[v.f]==="known"; });
+      var has11=VOCAB.some(function(v){ return v.c===11; });
+      var all=has11 && VOCAB.every(function(v){ return v.c!==11 || state.vocab[v.f]==="known"; });
       if(all) award("a_v6");
     } else if(statusMap===state.verbs){
-      var allv=V.every(function(v){ return state.verbs[v.fr]==="known"; });
+      var allv=V.length && V.every(function(v){ return state.verbs[v.fr]==="known"; });
       if(allv) award("a_conj");
     }
   }catch(e){}
@@ -3082,8 +3091,9 @@ function anaRecord(ok, close, meta, silent){
     var sk2=S.gram[meta.sk]||(S.gram[meta.sk]={a:0,m:0}); sk2.a++; if(!ok)sk2.m++;
   }
   if(!silent) onGraded(ok);   /* trainers grade per CARD via recordAnswer; their slots pass silent */
-  sesFill++; if(close && !ok) sesAccMiss++;
-  if(sesFill>=20 && sesAccMiss===0) award("a_acc");
+  sesFill++; if(ok) sesRight++; else if(close) sesAccMiss++;
+  /* clean-accent session: enough answers, a real majority correct, none lost to accents alone */
+  if(sesFill>=20 && sesAccMiss===0 && sesRight>=sesFill*0.7) award("a_acc");
   saveState(); renderInsightsSoon();
 }
 /* ---------- Insights tab rendering ---------- */
