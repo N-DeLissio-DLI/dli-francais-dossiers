@@ -1,9 +1,9 @@
-# DLI Français Dossiers — Project Rules for Claude Code
+# Français Dossiers — Project Rules for Claude Code
 
 ## What this project is
 Self-contained, single-file HTML/JS study dossiers (localStorage progress tracking)
-for DLIFLC French Basic Course students, built by Nicholas (student + instructor,
-Monterey). Used by him and classmates. Product is class-agnostic — not tied to one
+for French Basic Course students, built by Nicholas (student, Monterey). Used by
+him and classmates. Product is class-agnostic — not tied to one
 cohort's test date. Hosted on Cloudflare Pages.
 
 Repo layout (adjust to match actual repo once cloned):

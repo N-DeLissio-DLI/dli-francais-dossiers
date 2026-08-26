@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unité 3 · Dossier Français — v1.2.2.3</title>
+<title>Unité 3 · Dossier Français — v1.2.2.4</title>
 <style>
   :root{
     --ink:#16243d;          /* deep navy: text + structure */
@@ -296,7 +296,7 @@
   <header class="top">
     <div class="brand">
       <a class="backlink" href="/">‹ Tous les dossiers</a>
-      <div class="eyebrow">DLIFLC · French Basic Course · Unit 3 · v1.2.2.3</div>
+      <div class="eyebrow">French Basic Course · Unit 3 · v1.2.2.4</div>
       <h1><b>Unité&nbsp;3</b> · Le Dossier&nbsp;<span>Français</span></h1>
     </div>
     <div>
@@ -564,8 +564,9 @@
   </section>
 
   <footer>
-    <strong>Dossier Unité 3 · v1.2.2.3</strong> — built from your DLIFLC <em>French Basic Course, Textbook 3</em>, Chapters 11–14 (Clothing · Weather · Vacations · Grammar review), plus AOL 120 vocabulary. Conjugations are present indicative; the passé composé is drilled in Grammaire. Engine forked from the Unité 1 Dossier v3.1.0.1.<br>
+    <strong>Dossier Unité 3 · v1.2.2.4</strong> — built from the <em>French Basic Course, Textbook 3</em>, Chapters 11–14 (Clothing · Weather · Vacations · Grammar review), plus AOL 120 vocabulary. Conjugations are present indicative; the passé composé is drilled in Grammaire. Engine forked from the Unité 1 Dossier v3.1.0.1.<br>
     <details class="changelog"><summary>Changelog</summary>
+    <span style="color:var(--mute)">v1.2.2.4 (25 Aug 2026): <strong>School references removed · Ch 12 « sinistré » grading fix.</strong> An institutional tag is dropped from the browser-tab title, the header eyebrow, and the footer masthead; the Ch 13 Pratique orale card is retitled "First day of class" and its prompt reworded to « premier jour de cours ». <strong>Vocab:</strong> the Ch 12 card stored « le/la sinistré(e) » as one graded string — the engine's article parser doesn't read the slashed dual form, so it treated the whole thing as the noun and marked the natural answers <em>le sinistré</em> / <em>la sinistrée</em> wrong. The headword is now <em>le sinistré</em>, with <em>la sinistrée</em> and the literal glossaire form « le/la sinistré(e) » accepted as alternates and the feminine noted; the article is still required. No other bank, drill, scoring, or saved-progress changes.<br></span>
     <span style="color:var(--mute)">v1.2.2.3 (25 Aug 2026): <strong>Stale tab intros — fork/drift copy fixes.</strong> The <strong>Conjugaison</strong> and <strong>Pratique orale</strong> leads still described Unit 2's scope ("Every Chapter 6 verb — modaux, glossaire -er, peindre…" / "the Chapter 6 tasks"), carried over when Unit 3's engine was forked from Unit 2; both now describe Unit 3. The <strong>Grammaire</strong> lead listed three drills dropped in v1.1.0 (voix passive, futur proche au passé, cause &amp; effet) and predated the Ch 11 <em>pronom Y</em> rebuild; rewritten to the drills that actually ship. The dashboard "I'm currently in" chapter picker labelled <strong>Chapter 14</strong> with Chapter 13's text ("Vacations &amp; destinations"); Ch 14 now reads "Grammar review", matching the masthead. Copy only.<br></span>
     <span style="color:var(--mute)">v1.2.2.2 (25 Aug 2026): <strong>Trainer intros span the full width.</strong> The instruction paragraph and bullet list under the Conjugaison and Vocabulaire trainers were capped at a narrow prose measure, so they wrapped well short of the controls below them and pushed the training card down the page. They now span the content width like everything else, so the card sits higher — on-screen without scrolling on a typical desktop. CSS only.<br></span>
     <span style="color:var(--mute)">v1.2.2.1 (25 Aug 2026): <strong>Back-link restyled.</strong> The <strong>‹ Tous les dossiers</strong> header link is now a bordered pill button (hairline border, card fill, red on hover) instead of bare text, so it reads clearly as a button. CSS only.<br></span>
@@ -1498,7 +1499,7 @@ var VOCAB_CH12=[
  {f:"l'inondation",e:"the flood",c:12,t:"mmots",n:"f. — vs la crue (the water rise)",y:"Latin inundare → English inundate — the unda (wave) rolls in."},
  {f:"la panne d'électricité",e:"the power outage",c:12,t:"mmots",n:"synonym: la coupure de courant; en panne = broken down",y:"panne — the sail hanging slack; a car en panne has lost its wind."},
  {f:"s'informer",e:"to get informed",c:12,t:"verb",y:"Latin informare — to shape the mind; forming yourself with facts."},
- {f:"le/la sinistré(e)",e:"the disaster victim",c:12,t:"mmots",x:1,y:"Latin sinister, the ill-omened left side → English sinister; struck by the sinister event."},
+ {f:"le sinistré",e:"the disaster victim",c:12,t:"mmots",x:1,a:["la sinistrée","le/la sinistré(e)"],n:"f. la sinistrée — glossaire : le/la sinistré(e)",y:"Latin sinister, the ill-omened left side → English sinister; struck by the sinister event."},
  /* --- Verbes (Ch 12, infinitive cards) --- */
  {f:"s'abattre sur",e:"to fall upon / to pound down on (a storm)",c:12,t:"verb",y:"To batter down onto — battre (→ English battery, combat); the storm batters itself onto the coast."},
  {f:"s'améliorer",e:"to improve (weather)",c:12,t:"verb",y:"Latin melior, better → English ameliorate — same word in a raincoat."},
@@ -2969,7 +2970,7 @@ var OPI=[
  {t:"Ch 12 · Seasons",d:"Quelle saison préférez-vous et pourquoi ? Quelle saison détestez-vous ? — Which season do you prefer and why? Which do you hate?",s:["préférer + noun", "parce que", "comparatives: plus doux que, moins pluvieux que."]},
  {t:"Ch 12 · Fifty years on",d:"Le changement climatique : qu'est-ce qui se passera dans cinquante ans, à votre avis ? — Climate change: what will happen in fifty years, in your view?",s:["Futur simple throughout", "la fonte des glaces, la sécheresse, les inondations."]},
  {t:"Ch 13 · Childhood memory",d:"Racontez votre meilleur souvenir d'enfance. Où étiez-vous ? Que s'est-il passé ? — Tell your best childhood memory. Where were you? What happened?",s:["Imparfait for the backdrop, PC for events", "quand j'étais petit(e)…"]},
- {t:"Ch 13 · First day at DLI",d:"Décrivez votre premier jour à la DLI. Comment vous sentiez-vous ? Qu'est-ce qui s'est passé ? — Describe your first day at DLI. How did you feel? What happened?",s:["j'étais nerveux/nerveuse", "le sergent nous a dit que nous allions…"]},
+ {t:"Ch 13 · First day of class",d:"Décrivez votre premier jour de cours. Comment vous sentiez-vous ? Qu'est-ce qui s'est passé ? — Describe your first day of class. How did you feel? What happened?",s:["j'étais nerveux/nerveuse", "le sergent nous a dit que nous allions…"]},
  {t:"Ch 13 · Changed plans",d:"Racontez un moment où vos plans ont changé au dernier moment. — Tell about a time your plans changed at the last minute.",s:["J'allais + infinitif, mais…", "the interrupted-plan frame."]},
  {t:"Ch 13 · Crime plot",d:"Racontez l'intrigue d'un film policier ou d'un roman que vous aimez. — Summarize the plot of a crime film or novel you like.",s:["Present tense for plot summaries works", "le voleur, l'enquêteur, l'indice."]},
  {t:"Ch 13 · Family journey",d:"Votre famille a-t-elle une histoire de voyage ou d'immigration ? Racontez. — Does your family have a travel or immigration story? Tell it.",s:["mes grands-parents sont venus de…", "à l'époque", "autrefois."]},
